@@ -29,60 +29,41 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="view">View
+						Employee <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item active"><a class="nav-link disabled"
-					href="addemp">AddEmp</a></li>
+					href="addemp">Add Employee</a></li>
 			</ul>
 
 		</div>
 	</nav>
 
+
+
 	<!-- Navbar -->
 
-	<div th:if=${session.msg}>
+<style>
+body {
+	background:url(Home.jpg) no-repeat center center fixed;
+	background-size: cover;
+	}
+</style>
+
+<h1 class="title" align="center">Welcome</h1>
+
+<style>
+.title {
+	text-align: center;
+}
+</style>
 
 
-		<div class="alert alert-success" role="alert" th:text="${session.msg}"></div>
-
-		<th:block th:text="${#session.removeAttribute('msg')}">
-	</div>
-	<div class="container p-5">
-		<table class="table table-striped">
-			<thead class="bg-primary text-white">
-				<tr>
-					<th scope="col">Id</th>
-					<th scope="col">Name</th>
-					<th scope="col">Address</th>
-					<th scope="col">Email</th>
-					<th scope="col">Phone No</th>
-					<th scope="col">Salary</th>
-					<th scope="col">Action</th>
 
 
-				</tr>
+	<!-- <h3 style="font-size:300%; text-align:center">Welcome</h3>
+	 -->
 
-			</thead>
-			<tbody>
-				<tr th:each="e: ${emp}">
-					<th th:text="${e.id}">1</th>
-					<th th:text="${e.name}"></th>
-					<th th:text="${e.address}"></th>
-					<th th:text="${e.email}"></th>
-					<th th:text="${e.phone}"></th>
-					<th th:text="${e.salary}"></th>
-					<td><a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${e.id})}"> Edit</a> 
-					<a class="btn btn-sm btn-danger"  th:href="@{/delete/{id}(id=${e.id})}"> Delete</a>
-					</td>
-
-				</tr>
-
-
-			</tbody>
-		</table>
-
-	</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

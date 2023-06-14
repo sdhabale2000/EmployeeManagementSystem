@@ -1,5 +1,6 @@
 package com.EmpSystem.service;
 
+import java.io.ByteArrayInputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.EmpSystem.entity.Employee;
+import com.EmpSystem.helper.Helper;
 import com.EmpSystem.repository.EmpRepository;
 
 @Service
@@ -50,6 +52,19 @@ public class EmpServies {
 		
 		repository.deleteById(id);
 	}
+	
+	public ByteArrayInputStream getActualData() {
+
+		List<Employee> list = repository.findAll();
+		
+		
+		ByteArrayInputStream excell = Helper.dataToExcel(list);
+		
+		
+		
+		return excell;
+	}
+
 
 //	@GetMapping("/empByName")
 //	public List<Employee> findByName(@RequestParam String name) {
